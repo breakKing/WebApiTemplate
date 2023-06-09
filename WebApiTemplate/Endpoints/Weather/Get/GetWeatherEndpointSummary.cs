@@ -2,7 +2,7 @@
 
 public sealed class GetWeatherEndpointSummary : EndpointSummaryBase
 {
-    private static readonly GetWeatherResponse _successResponseExample =
+    private static readonly GetWeatherResponse SuccessResponseExample =
         new GetWeatherResponse(
             Enumerable.Range(1, 5)
                 .Select(_ => new WeatherDto())
@@ -13,7 +13,7 @@ public sealed class GetWeatherEndpointSummary : EndpointSummaryBase
         Summary = "Стандартный коробочный запрос погоды";
         Description = "Генерация пяти рандомных прогнозов погоды. Эндпоинт, идущий в шаблонах по умолчанию";
         
-        AddSuccessResponseExample(HttpStatusCode.Created, _successResponseExample);
+        AddSuccessResponseExample(HttpStatusCode.OK, SuccessResponseExample);
         AddFailResponseExamples(HttpStatusCode.InternalServerError);
     }
 }

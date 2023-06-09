@@ -1,7 +1,3 @@
-﻿using System.Text.Json.Serialization;
+﻿namespace WebApiTemplate.Endpoints;
 
-namespace WebApiTemplate.Endpoints;
-
-public sealed record PaginationRequest(
-    [property: JsonPropertyName("pageNumber")] int PageNumber, 
-    [property: JsonPropertyName("pageSize")] int PageSize);
+public record PaginationRequest(int PageNumber = 1, int PageSize = 20);

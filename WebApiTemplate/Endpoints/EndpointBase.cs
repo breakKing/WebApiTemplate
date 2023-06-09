@@ -1,7 +1,7 @@
 ﻿namespace WebApiTemplate.Endpoints;
 
 public abstract class EndpointBase<TRequest, TResponse> : Endpoint<TRequest, ApiResponse<TResponse>>
-    where TRequest : notnull, new()
+    where TRequest : notnull
 {
     protected async Task SendDataAsync(
         TResponse response, 
@@ -29,39 +29,30 @@ public abstract class EndpointBase<TRequest, TResponse> : Endpoint<TRequest, Api
         await SendErrorsAsync(new List<string> { error }, statusCode, ct);
     }
 
-
     protected virtual void ConfigureSwaggerDescription(
         EndpointSummaryBase summary, 
         params HttpStatusCode[] statusCodes)
     {
         Description(desc =>
         {
-            desc.Accepts<TRequest>("application/json");
-
             foreach (var code in statusCodes)
             {
                 desc.Produces<ApiResponse<TResponse>>((int)code);
             }
-        }, clearDefaults: true);
+        });
 
         Summary(summary);
     }
 }
 
+public abstract class EndpointWithPaginationBase<TRequest, TResponse> :
+    EndpointBase<TRequest, PaginatedData<TResponse>>
+    where TRequest : PaginationRequest
+{
+    
+}
+
 public abstract class EndpointWithoutRequestBase<TResponse> : EndpointBase<EmptyRequest, TResponse>
 {
-    protected override void ConfigureSwaggerDescription(
-        EndpointSummaryBase summary,
-        params HttpStatusCode[] statusCodes)
-    {
-        Description(desc =>
-        {
-            foreach (var code in statusCodes)
-            {
-                desc.Produces<ApiResponse<TResponse>>((int)code);
-            }
-        }, clearDefaults: true);
 
-        Summary(summary);
-    }
 }

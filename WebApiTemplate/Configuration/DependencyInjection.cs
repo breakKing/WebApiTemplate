@@ -1,4 +1,8 @@
-﻿using FastEndpoints.Swagger;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+using FastEndpoints.Swagger;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using NJsonSchema;
 
 namespace WebApiTemplate.Configuration;
@@ -15,10 +19,26 @@ public static class DependencyInjection
         {
             o.DocumentSettings = settings =>
             {
-                settings.Title = "FastEndpointsTemplate";
+                settings.Title = "WebApiTemplate";
                 settings.Version = "v1";
                 settings.SchemaType = SchemaType.OpenApi3;
+                settings.MarkNonNullablePropsAsRequired();
+                settings.AllowNullableBodyParameters = true;
+                settings.GenerateEnumMappingDescription = true;
+                settings.SerializerSettings = new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                };
             };
+
+            o.SerializerSettings = s =>
+            {
+                s.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                s.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
+                s.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+            };
+
+            o.ShortSchemaNames = true;
         });
 
         return services;
