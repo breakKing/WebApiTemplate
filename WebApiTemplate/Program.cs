@@ -1,4 +1,4 @@
-using FastEndpointsTemplate.Configuration;
+using WebApiTemplate.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 

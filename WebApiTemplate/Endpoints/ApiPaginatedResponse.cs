@@ -1,4 +1,4 @@
-﻿namespace FastEndpointsTemplate.Endpoints;
+﻿namespace WebApiTemplate.Endpoints;
 
 public record ApiPaginatedResponse<TData>(
         PaginatedData<TData> Data,

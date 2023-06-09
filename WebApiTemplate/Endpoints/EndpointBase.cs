@@ -1,4 +1,4 @@
-﻿namespace FastEndpointsTemplate.Endpoints;
+﻿namespace WebApiTemplate.Endpoints;
 
 public abstract class EndpointBase<TRequest, TResponse> : Endpoint<TRequest, ApiResponse<TResponse>>
     where TRequest : notnull, new()

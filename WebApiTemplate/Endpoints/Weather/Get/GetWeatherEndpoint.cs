@@ -1,4 +1,4 @@
-﻿namespace FastEndpointsTemplate.Endpoints.Weather.Get;
+﻿namespace WebApiTemplate.Endpoints.Weather.Get;
 
 public sealed class GetWeatherEndpoint : EndpointWithoutRequestBase<GetWeatherResponse>
 {
@@ -12,7 +12,7 @@ public sealed class GetWeatherEndpoint : EndpointWithoutRequestBase<GetWeatherRe
     /// <inheritdoc />
     public override void Configure()
     {
-        Get();
+        Get("");
         Group<WeatherEndpointGroup>();
         AllowAnonymous();
 

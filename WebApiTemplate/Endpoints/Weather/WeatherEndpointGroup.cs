@@ -1,4 +1,4 @@
-﻿namespace FastEndpointsTemplate.Endpoints.Weather;
+﻿namespace WebApiTemplate.Endpoints.Weather;
 
 public sealed class WeatherEndpointGroup : EndpointGroupBase
 {

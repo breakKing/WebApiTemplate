@@ -1,4 +1,4 @@
-﻿namespace FastEndpointsTemplate.Configuration;
+﻿namespace WebApiTemplate.Configuration;
 
 public static class WebAppBuilderConfiguration
 {

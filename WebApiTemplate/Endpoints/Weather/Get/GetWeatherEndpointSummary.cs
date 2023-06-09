@@ -1,4 +1,4 @@
-﻿namespace FastEndpointsTemplate.Endpoints.Weather.Get;
+﻿namespace WebApiTemplate.Endpoints.Weather.Get;
 
 public sealed class GetWeatherEndpointSummary : EndpointSummaryBase
 {

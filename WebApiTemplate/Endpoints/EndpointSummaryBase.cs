@@ -1,4 +1,4 @@
-﻿namespace FastEndpointsTemplate.Endpoints;
+﻿namespace WebApiTemplate.Endpoints;
 
 public abstract class EndpointSummaryBase : EndpointSummary
 {

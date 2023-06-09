@@ -1,8 +1,8 @@
 ﻿using System.Text.Json;
 using FastEndpoints.Swagger;
-using FastEndpointsTemplate.Endpoints;
+using WebApiTemplate.Endpoints;
 
-namespace FastEndpointsTemplate.Configuration;
+namespace WebApiTemplate.Configuration;
 
 public static class ApplicationPipeline
 {
@@ -10,9 +10,6 @@ public static class ApplicationPipeline
     {
         app.UseHttpsRedirection();
 
-        app.UseAuthentication();
-        app.UseAuthorization();
-        
         app.UseFastEndpoints(config =>
         {
             config.Serializer.Options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;

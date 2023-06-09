@@ -1,7 +1,7 @@
 ﻿using FastEndpoints.Swagger;
 using NJsonSchema;
 
-namespace FastEndpointsTemplate.Configuration;
+namespace WebApiTemplate.Configuration;
 
 public static class DependencyInjection
 {

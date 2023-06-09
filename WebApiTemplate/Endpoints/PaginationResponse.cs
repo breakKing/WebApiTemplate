@@ -1,4 +1,4 @@
-﻿namespace FastEndpointsTemplate.Endpoints;
+﻿namespace WebApiTemplate.Endpoints;
 
 public sealed record PaginationResponse(
     long ItemsCount, 

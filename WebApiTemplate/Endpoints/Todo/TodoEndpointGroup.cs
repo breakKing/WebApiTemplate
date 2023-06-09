@@ -1,4 +1,4 @@
-﻿namespace FastEndpointsTemplate.Endpoints.Todo;
+﻿namespace WebApiTemplate.Endpoints.Todo;
 
 public sealed class TodoEndpointGroup : EndpointGroupBase
 {
