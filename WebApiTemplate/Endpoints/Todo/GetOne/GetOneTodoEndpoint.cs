@@ -20,7 +20,7 @@ public sealed class GetOneTodoEndpoint : EndpointBase<GetOneTodoRequest, GetOneT
     public override async Task HandleAsync(GetOneTodoRequest req, CancellationToken ct)
     {
         var data = new GetOneTodoResponse(
-            Guid.NewGuid(),
+            req.Id,
             "Сделать дело",
             "Сделать дело и идти гулять");
 
