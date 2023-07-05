@@ -8,7 +8,7 @@ public abstract class EndpointBase<TRequest, TResponse> : Endpoint<TRequest, Api
         HttpStatusCode statusCode = HttpStatusCode.OK,
         CancellationToken ct = default)
     {
-        var apiResponse = new ApiResponse<TResponse>(response, false, null);
+        var apiResponse = new ApiResponse<TResponse>(response, false, new());
         await SendAsync(apiResponse, (int)statusCode, cancellation: ct);
     }
 
@@ -33,6 +33,8 @@ public abstract class EndpointBase<TRequest, TResponse> : Endpoint<TRequest, Api
         EndpointSummaryBase summary, 
         params HttpStatusCode[] statusCodes)
     {
+        DontAutoTag();
+        
         Description(desc =>
         {
             foreach (var code in statusCodes)
@@ -40,7 +42,7 @@ public abstract class EndpointBase<TRequest, TResponse> : Endpoint<TRequest, Api
                 desc.Produces<ApiResponse<TResponse>>((int)code);
             }
         });
-
+        
         Summary(summary);
     }
 }
